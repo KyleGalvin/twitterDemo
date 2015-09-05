@@ -19,44 +19,27 @@ var getCredentials = function(){
 var twitterInstance = new twitter(getCredentials());
 var twitterSearchAsync = function(search,options){
 	return new promise(function(resolve,reject){
-		twitterInstance.get("https://api.twitter.com/1.1/search/tweets.json?q=bubblegum&count=10",function(error,tweets,response){
-		//twitterInstance.get("https://api.twitter.com/1.1/geo/search.json?longitude=49&latitude=-123&granularity=city",function(error,tweets,response){
-			if(!error){
-				resolve(tweets.statuses)
-			}else{
-				reject(error)
-			}
+		twitterInstance.stream('https://stream.twitter.com/1.1/statuses/sample.json',{ },function(stream){
+			stream.on('data', function(tweet) {
+				console.log("\ntweet\n"+JSON.stringify(tweet))
+			})
 		})
 	})
 }
 
 
-exports.twitter = {
-	twitterAPI: function(test){
+exports.stream = {
+	stream : function(test){
 		var options= { count: 100};
-		test.expect(1);
-
-		var printTweets = function(data){
-			//console.log("\ndata:\n"+JSON.stringify(data))
-			/*
-			for(var i=0;i<data.length;i++){
-				console.log("\ndata:\n"+JSON.stringify(data[i].coordinates)+ JSON.stringify(data[i].text))
-
-			}
-			*/
-			test.ok(data != null,"\ndata:\n"+JSON.stringify(data))
-		}
 		var endTest = function(){
 			test.done()
 		}
+
 		twitterSearchAsync("hello",options)
-		.then(printTweets)
 		.then(endTest)
 		.catch(function(e){
 			test.ok(false,"\nerror:\n"+JSON.stringify(e))
 			test.done()
 		});
-
 	}
-
 }
