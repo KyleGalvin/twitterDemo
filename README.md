@@ -1,4 +1,8 @@
-Install:
+Dependencies:
+
+mongodb, nodejs, npm
+
+Installation:
 
 npm install
 
