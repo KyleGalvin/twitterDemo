@@ -21,6 +21,14 @@ add file "../twitterCredentials.json" and fill out the following:
 		}
 ```
 
+Testing: 
+
+run the test suite by issuing the following command:
+
+```
+npm test
+```
+
 Troubleshooting:
 
 if Twitter API fails to authenticate, it is posible the server time may be drifting.
