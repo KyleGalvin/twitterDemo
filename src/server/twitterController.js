@@ -1,9 +1,8 @@
 var fs = require('fs');
 var promise = require('bluebird')
-var Twitter = promise.promisify(require('twitter'))
+var Twitter = promise.promisifyAll(require('twitter'))
 
 var authenticatedClient = null
-var results = null
 module.exports = {
 	init: function(){
 		var credentials = JSON.parse(fs.readFileSync('../twitterCredentials.json', 'utf8'));//decouple from repository
@@ -16,15 +15,11 @@ module.exports = {
 				"access_token_secret": ""
 			}
 		}
-		authenticatedClient =  new Twitter(credentials);
-
-
+		return new Twitter(credentials);
 	},
-	getResults: function(){
-		return results;
-	},
-	query : function(searchTerm, offset, limit,test,callback){
+	query : function(searchTerm, offset, limit){
 		var results = {};
+		console.log("\nquery called\n");
 		var params = {screen_name: 'nodejs'};
 		authenticatedClient.get('https://api.twitter.com/1.1/search/tweets.json?offset=20&limit=10&q=hello',
 			params, 
@@ -32,7 +27,7 @@ module.exports = {
 				console.log("\n error: "+ JSON.stringify(error) + "\n")
 				console.log("\n tweets: "+ tweets + "\n")
 				if(!error){
-					callback(tweets)
+					return tweets
 				}else{
 					console.log("twitter GET with credentials throws error: " +JSON.stringify(error));
 					results = null;
