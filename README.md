@@ -5,6 +5,8 @@ mongodb, nodejs, npm
 Installation:
 
 ```
+git clone https://github.com/darkdigitaldream/twitterDemo.git
+cd twitterDemo
 npm install
 ```
 
