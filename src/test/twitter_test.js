@@ -1,22 +1,18 @@
-var Twitter = require('twitter')
-var fs = require('fs');
+var twitterController = require('../server/twitterController');
+//var Promise = require("bluebird");
+
 exports.twitter = {
-	get: function(test){
-		var credentials = JSON.parse(fs.readFileSync('../twitterCredentials.json', 'utf8'));//decouple from repository
-		var client = new Twitter(credentials);
+	controller: function(test){
+		twitterController.init()
 
-		var params = {screen_name: 'nodejs'};
-		client.get('statuses/user_timeline',params, function(error,tweets,response){
-			if(!error){
-				test.ok(true,"twitter GET with credentials throws no error")
-				console.log(tweets);
+		twitterController.query("hello",20,10,function(response){
+			if(typeof(response) == "String"){
+				test.ok(true, "response found: "+ JSON.stringify(response))
 			}else{
-				console.log(error);
-				test.ok(false,"twitter GET with credentials throws error: " +JSON.stringify(error))
+				test.ok(false,"twitterController.query() failed"+response)
 			}
-
-			test.expect(1)
-			test.done()
-		});
+		})
+		test.expect(1)
+		test.done()
 	}
 }
