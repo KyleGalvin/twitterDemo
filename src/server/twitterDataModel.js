@@ -12,19 +12,17 @@ module.exports = {
 		tweet = db.model('tweet', tweetSchema);
 	},
 	save : function(twitterJSON){//save incoming JSON to twitter datastore
-		twitterJSON.unixTime = new Date(twitterJSON.created_at).getTime();//numerical unix time is easy to sort for pagination
 		var t = new tweet(twitterJSON)
 		t.save()
 	},
 	query : function(query){//return subset of twitter data based on query parameters
-		console.log('q:',query.query)
-		return tweet.find({'text': new RegExp(query.query,'i')}).skip(query.offset).limit(query.limit).sort({unixTime:-1});
+		return tweet.find({'text': new RegExp(query.query,'i')}).sort({timestamp_ms:-1}).skip(query.offset).limit(query.limit);
 	},
 	drop : function(){//drop all mongoDB twitter data
 		tweet.find().remove().exec();
 	},
-	count : function(){
-		return tweet.count({})
+	count : function(query){
+		return tweet.find({'text': new RegExp(query.query,'i')}).count({})
 	} 
 
 }

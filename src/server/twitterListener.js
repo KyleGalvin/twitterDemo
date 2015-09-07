@@ -14,22 +14,18 @@ var filterLocationBeforeSave = function(tweet){
 		while(coordinates[0] instanceof Array){//when our elements are numbers we are at a [longitude,lattitude] structure
 			coordinates = coordinates[0]
 		}	
-		console.log("point of origin:", coordinates)
 
 		//use the separating axis theorem to detect tweets in Vancouver
 		var isColliding = true
 		if(coordinates[0] > vancouverBoundingBox[0][0] || coordinates[0] < vancouverBoundingBox[1][0]){
 			isColliding = false
-			console.log('failed 122-124')
 		}
 		if(coordinates[1] > vancouverBoundingBox[0][1] || coordinates[1] < vancouverBoundingBox[1][1]){
 			isColliding = false
-			console.log('failed 48-50')
 		}
 
 		//if we havent ruled out a collision yet, the tweet is from Vancouver and we want to keep it
 		if(isColliding){
-			console.log('saving vancouver tweet:',coordinates)
 			saveCallback(tweet)
 		}	
 	}

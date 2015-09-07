@@ -17,8 +17,10 @@ body{
 	padding-right:10px;
 }
 .navigation{
+	display:block;
+	position:relative;
 	width:100%;
-	margin-top:20px;
+	top:20px;
 	margin-bottom:20px;
 	height:50px;
 }
@@ -40,8 +42,10 @@ body{
 	line-height:30px;
 	background-color:#888888;
 	float:left;
+	left:0;
 }
 .prev:hover{
+	cursor:pointer;
 	background-color:#000000;
 	color:#888888;
 }
@@ -53,8 +57,41 @@ body{
 	line-height:30px;
 	background-color:#888888;
 	float:right;
+	right:0;
 }
 .next:hover{
+	cursor:pointer;
+	background-color:#000000;
+	color:#888888;
+}
+.searchContainer{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+	margin-bottom:20px;
+	display:block;
+	position:relative;
+	width:400px;
+	height:30px;
+}
+.searchBox{
+	border-radius:5px;
+	float:left;
+	height: 30px;
+	width: 300px;
+}
+.searchButton{
+	border-radius:5px;
+	height: 30px;
+	line-height:30px;
+	margin-left:10px;
+	width:90px;
+	float:right;
+	background-color:#888888;
+	text-align:center;
+}
+.searchButton:hover{
+	cursor:pointer;
 	background-color:#000000;
 	color:#888888;
 }

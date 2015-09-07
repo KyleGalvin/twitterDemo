@@ -28,7 +28,7 @@ webServer.createEndpoint('/tweets',function(req,res){//express.js router behind 
 webServer.createEndpoint('/tweetCount',function(req,res){//express.js router behind the scenes
 	var HTTPGETQueryJSON = url.parse(req.url,true).query;//turn HTTP GET query parameters into easy-to-use JSON structure
 	//twitterDataModel handles any incoming requests and returns JSON data
-	twitterDataModel.count().then(function(response){
+	twitterDataModel.count(HTTPGETQueryJSON).then(function(response){
 		res.json({count:response});
 	})
 })
