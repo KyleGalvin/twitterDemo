@@ -27,6 +27,7 @@ you can run the test suite to ensure the environment is properly configured.
 Testing: 
 
 Tests must be run as root to bind to port 80
+
 run the test suite by issuing the following command:
 
 ```
