@@ -1,0 +1,60 @@
+body{
+	background-color:#3D2A26;
+}
+
+.contentContainer{
+	position:relative;
+	width:90%;
+	border: 1px solid #888888;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#25383C;
+	border-radius: 10px;
+}
+.twitterDataTable{
+	width:100%;
+	padding-left:10px;
+	padding-right:10px;
+}
+.navigation{
+	width:100%;
+	margin-top:20px;
+	margin-bottom:20px;
+	height:50px;
+}
+.status{
+	margin-left:auto;
+	margin-right:auto;
+	width:300px;
+	height:30px;
+	text-align: center;
+	line-height:30px;
+	background-color:#888888;
+	border-radius: 5px;
+}
+.prev{
+	border-radius: 0 5px 5px 0;
+	height:30px;
+	width:100px;
+	text-align: center;
+	line-height:30px;
+	background-color:#888888;
+	float:left;
+}
+.prev:hover{
+	background-color:#000000;
+	color:#888888;
+}
+.next{
+	border-radius: 5px 0 0 5px;
+	height:30px;
+	width:100px;
+	text-align: center;
+	line-height:30px;
+	background-color:#888888;
+	float:right;
+}
+.next:hover{
+	background-color:#000000;
+	color:#888888;
+}

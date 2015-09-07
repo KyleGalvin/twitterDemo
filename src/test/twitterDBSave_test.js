@@ -71,15 +71,13 @@ exports.scrape = {
 			mongoose.connection.close()
 			test.done()
 		}
-		twitterSearchAsync("bubblegum",count)//pull tweets from twitter
+		twitterSearchAsync("hello",count)//pull tweets from twitter
 		//.then(removeAllTweets)
 		.then(createTweets)//add tweets to database
 		.then(queryTweets)//query from database (check that tweets got saved)
 		.then(printTweets)//output/debugging
 		.then(endTest)//cleanup
 		.catch(function(e){
-			test.ok(false,"\nerror:\n"+JSON.stringify(e))
-			endTest()//cleanup
 		})
 
 	}

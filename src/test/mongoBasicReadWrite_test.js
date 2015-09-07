@@ -1,5 +1,8 @@
 var mongoose = require("mongoose")
 exports.mongo = {
+	setUp: function(callback){
+		callback()
+	},
 
 	tutorial : function(test){
 		mongoose.connect("mongodb://localhost/test")

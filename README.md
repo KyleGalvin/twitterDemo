@@ -13,12 +13,12 @@ npm install
 add file "../twitterCredentials.json" and fill out the following:
 
 ```
-		{
-			"consumer_key": "",
-			"consumer_secret": "",
-			"access_token_key": "",
-			"access_token_secret": ""
-		}
+{
+	"consumer_key": "",
+	"consumer_secret": "",
+	"access_token_key": "",
+	"access_token_secret": ""
+}
 ```
 
 Testing: 
