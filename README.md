@@ -10,6 +10,7 @@ cd twitterDemo
 npm install
 ```
 
+
 add file "../twitterCredentials.json" and fill out the following:
 
 ```
@@ -21,12 +22,24 @@ add file "../twitterCredentials.json" and fill out the following:
 }
 ```
 
+you can run the test suite to ensure the environment is properly configured.
+
 Testing: 
 
+Tests must be run as root to bind to port 80
 run the test suite by issuing the following command:
 
 ```
-npm test
+sudo npm test
+```
+
+Deploying:
+
+make sure you have root permissions to bind to port 80
+
+```
+cd twitterDemo
+sudo node src/server/server.js & 
 ```
 
 Troubleshooting:
