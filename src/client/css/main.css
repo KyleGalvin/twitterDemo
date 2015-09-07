@@ -3,6 +3,7 @@ body{
 }
 
 .contentContainer{
+	top:50px;
 	position:relative;
 	width:90%;
 	border: 1px solid #888888;
@@ -12,6 +13,7 @@ body{
 	border-radius: 10px;
 }
 .twitterDataTable{
+	color:#888888;
 	border:1px solid #36494d;
 	width:100%;
 }
@@ -22,6 +24,7 @@ body{
 	top:20px;
 	margin-bottom:20px;
 	height:50px;
+	color:#14272b;
 }
 .status{
 	margin-left:auto;
@@ -44,13 +47,28 @@ body{
 	left:0;
 }
 .odd{
-	background-color:#36494d
+	background-color:#14272b;
 }
 .even{
-	background-color:#25383c
+	background-color:#25383c;
 }
 .twitterDataTable td{
 	padding-left:10px;
+}
+.sorting_asc:hover{
+	cursor:pointer;
+	background-color:#14272b;
+	color:#888888;
+}
+.sorting_desc:hover{
+	cursor:pointer;
+	background-color:#14272b;
+	color:#888888;
+}
+.sorting:hover{
+	cursor:pointer;
+	background-color:#14272b;
+	color:#888888;
 }
 .prev:hover{
 	cursor:pointer;
@@ -97,6 +115,7 @@ body{
 	float:right;
 	background-color:#888888;
 	text-align:center;
+	color:#14272b;
 }
 .searchButton:hover{
 	cursor:pointer;

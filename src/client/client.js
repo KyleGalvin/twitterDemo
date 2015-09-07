@@ -30,10 +30,10 @@ define(function(require){
 					dataSrc:''
 				},
 				columns: [
-					{'width':'55%',title:'Text:',data:'text',"defaultContent":""},
-					{'width':'15%',title:'Username:',data:'user.name',"defaultContent":""},
-					{'width':'15%',title:'Date:',data:'created_at',"defaultContent":""},
-					{'width':'15%',title:'Location:',data:'place.name',"defaultContent":""},
+					{'width':'55%',title:'Text',data:'text',"defaultContent":""},
+					{'width':'15%',title:'Username',data:'user.name',"defaultContent":""},
+					{'width':'15%',title:'Date',data:'created_at',"defaultContent":""},
+					{'width':'15%',title:'Location',data:'place.name',"defaultContent":""},
 				]
 			});
 
