@@ -69,6 +69,9 @@ define(function(require){
 
 		$(".next").click(function(){
 			offset = offset + limit;
+			if(offset > totalRecords){//dont let the user run off the end of the list
+				offset = offset -limit;
+			}
 			countRecords();
 		})
 		$(".searchButton").click(function(){

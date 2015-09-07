@@ -7,7 +7,7 @@ exports.twitterListener = {
 
 		var tweetCount = 0;
 		var testFinished = false;//prevent the tweet stream from calling test.done multiple times and messing up our test runner
-		twitterListener.listen("hello",function(tweetJSON){
+		twitterListener.listenNoFilter("hello",function(tweetJSON){
 			tweetCount += 1;
 			if(tweetCount >=10 && !testFinished){
 				testFinished = true

@@ -46,10 +46,14 @@ var getCredentials = function(){
 	return credentials;
 }
 
-var twitterStream = function(search){
+var twitterStream = function(search,filterLocation){
 	return new promise(function(resolve,reject){
 		twitterInstance.stream('https://stream.twitter.com/1.1/statuses/filter.json',{track:search},function(stream){
-			stream.on('data', filterLocationBeforeSave)
+			if(filterLocation){
+				stream.on('data', filterLocationBeforeSave)
+			}else{
+				stream.on('data',saveCallback)
+			}
 		})
 	})
 }
@@ -59,6 +63,10 @@ var twitterInstance = new twitter(getCredentials());
 module.exports = {
 	listen: function(keyword,DBSaveCallback){
 		saveCallback = DBSaveCallback//callback we use to save tweet JSON to datamodel
-		twitterStream(keyword)//pull tweets from twitter
+		twitterStream(keyword,true)//pull tweets from twitter
+	},
+	listenNoFilter: function(keyword,DBSaveCallback){
+		saveCallback = DBSaveCallback//callback we use to save tweet JSON to datamodel
+		twitterStream(keyword,false)//pull tweets from twitter
 	}
 }

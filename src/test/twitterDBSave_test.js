@@ -21,7 +21,6 @@ var twitterInstance = new twitter(getCredentials());
 var twitterSearchAsync = function(search,count){
 	return new promise(function(resolve,reject){
 		twitterInstance.get("https://api.twitter.com/1.1/search/tweets.json?q="+search+"&count="+count,function(error,tweets,response){
-		//twitterInstance.get("https://api.twitter.com/1.1/geo/search.json?longitude=49&latitude=-123&granularity=city",function(error,tweets,response){
 			if(!error){
 				resolve(tweets.statuses)
 			}else{
@@ -75,7 +74,7 @@ exports.scrape = {
 		//.then(removeAllTweets)
 		.then(createTweets)//add tweets to database
 		.then(queryTweets)//query from database (check that tweets got saved)
-		.then(printTweets)//output/debugging
+		//.then(printTweets)//output/debugging
 		.then(endTest)//cleanup
 		.catch(function(e){
 		})
